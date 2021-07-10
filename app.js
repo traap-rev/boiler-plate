@@ -6,10 +6,9 @@ import typeorm from "typeorm";
 const { createConnection } = typeorm
 */
 import routes from "./routes/index.js";
-import db from "./models/index";
+import db from "./models";
 
-
-db.rest.authenticate()
+db.sequelize.authenticate()
 .then(() => {
   console.log('Connection established.');
 })
