@@ -1,12 +1,9 @@
-import 'dotenv/config'
-import express from "express";
-var app = express();
-/*
-import typeorm from "typeorm";
-const { createConnection } = typeorm
-*/
-import routes from "./routes/index.js";
-import db from "./models";
+require('dotenv').config;
+const express = require("express");
+const app = express();
+
+const routes = require("./routes");
+const db = require("./models");
 
 db.sequelize.authenticate()
 .then(() => {
@@ -33,15 +30,7 @@ app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Resource not found.' });
 });
 
-/*
-createConnection().then(async (connection) => {
-  //console.warn(connection)
-  app.listen(port);
-  console.log('live on ' + port);
-}).catch(err => {
-  console.warn(err)
-})
-*/
 
-app.listen(port);
-console.log('live on ' + port);
+app.listen(() => {
+  console.log('live on ' + port);
+});

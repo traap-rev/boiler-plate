@@ -14,7 +14,7 @@ const Question = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       difficulty: {
-        type: Sequelize.ENUM,
+        type: DataTypes.ENUM,
         values: ['insane', 'hard', 'medium' ,'easy']
       }
     },
@@ -28,4 +28,5 @@ const Question = (sequelize, DataTypes) => {
   return Question;
 };
 
-export default Question;
+module.exports = Question;
+
